@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'WhatsApp All-in-One Engine (No Meta API Needed · Free QR Scan & Meta Cloud API)',
-    'version': '19.0.1.0.0',
+    'version': '18.0.1.0.0',
     'category': 'Sales/Extra Tools',
     'summary': 'Run WhatsApp in Odoo with Free QR Scan or Meta API · Unlimited Numbers · Bulk Campaigns (Launch Offer: $20 for First 10 Buyers | Regular: $35)',
     'description': """
@@ -60,9 +60,9 @@ Why Pay Monthly Subscriptions or Wait Weeks for Meta Approvals?
         'wizard/whatsapp_composer_views.xml',
     ],
     'images': [
+        'static/description/banner_v18.png',
         'static/description/banner.png',
         'static/description/banner_v19.png',
-        'static/description/banner_v18.png',
         'static/description/banner_v17.png',
     ],
     'installable': True,
