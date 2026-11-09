@@ -5,7 +5,7 @@
         <field name="name">whatsapp.account.list</field>
         <field name="model">whatsapp.account</field>
         <field name="arch" type="xml">
-            <list string="WhatsApp Accounts / Numbers"
+            <tree string="WhatsApp Accounts / Numbers"
                   decoration-success="session_status == 'connected'"
                   decoration-warning="session_status == 'connecting'"
                   decoration-muted="session_status == 'disconnected'">
@@ -18,7 +18,7 @@
                        decoration-success="session_status == 'connected'"
                        decoration-warning="session_status == 'connecting'"
                        decoration-muted="session_status == 'disconnected'"/>
-            </list>
+            </tree>
         </field>
     </record>
 

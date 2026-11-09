@@ -5,7 +5,7 @@
         <field name="name">whatsapp.campaign.list</field>
         <field name="model">whatsapp.campaign</field>
         <field name="arch" type="xml">
-            <list string="Bulk WhatsApp Campaigns"
+            <tree string="Bulk WhatsApp Campaigns"
                   decoration-success="state == 'done'"
                   decoration-info="state == 'in_progress'"
                   decoration-muted="state in ('draft', 'cancel')">
@@ -20,7 +20,7 @@
                        decoration-info="state == 'in_progress'"
                        decoration-muted="state == 'draft'"
                        decoration-danger="state == 'cancel'"/>
-            </list>
+            </tree>
         </field>
     </record>
 
@@ -58,12 +58,12 @@
                     <notebook>
                         <page string="Target Audience (1000+ Contacts)" name="audience">
                             <field name="partner_ids" placeholder="Select multiple contacts or tags...">
-                                <list>
+                                <tree>
                                     <field name="name"/>
                                     <field name="phone"/>
                                     <field name="email"/>
                                     <field name="country_id"/>
-                                </list>
+                                </tree>
                             </field>
                         </page>
                         <page string="Campaign Message &amp; Media" name="message">

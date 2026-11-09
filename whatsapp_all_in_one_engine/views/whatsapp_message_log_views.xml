@@ -5,7 +5,7 @@
         <field name="name">whatsapp.message.log.list</field>
         <field name="model">whatsapp.message.log</field>
         <field name="arch" type="xml">
-            <list string="WhatsApp Message History"
+            <tree string="WhatsApp Message History"
                   decoration-success="state in ('sent', 'delivered', 'read')"
                   decoration-danger="state == 'failed'"
                   decoration-muted="state == 'draft'">
@@ -19,7 +19,7 @@
                 <field name="state" widget="badge"
                        decoration-success="state in ('sent', 'delivered', 'read')"
                        decoration-danger="state == 'failed'"/>
-            </list>
+            </tree>
         </field>
     </record>
 

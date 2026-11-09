@@ -5,7 +5,7 @@
         <field name="name">whatsapp.template.list</field>
         <field name="model">whatsapp.template</field>
         <field name="arch" type="xml">
-            <list string="WhatsApp Templates">
+            <tree string="WhatsApp Templates">
                 <field name="name"/>
                 <field name="template_name"/>
                 <field name="model_id"/>
@@ -14,7 +14,7 @@
                 <field name="category"/>
                 <field name="report_id" optional="show"/>
                 <field name="active" widget="boolean_toggle"/>
-            </list>
+            </tree>
         </field>
     </record>
 
@@ -53,11 +53,11 @@
                         </page>
                         <page string="Dynamic Variables Mapping" name="variables">
                             <field name="variable_ids">
-                                <list editable="bottom">
+                                <tree editable="bottom">
                                     <field name="sequence"/>
                                     <field name="field_expression" placeholder="e.g. partner_id.name or amount_total"/>
                                     <field name="default_value" placeholder="Fallback text if empty"/>
-                                </list>
+                                </tree>
                             </field>
                         </page>
                     </notebook>
