@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Account List View -->
+    <record id="view_whatsapp_account_list" model="ir.ui.view">
+        <field name="name">whatsapp.account.list</field>
+        <field name="model">whatsapp.account</field>
+        <field name="arch" type="xml">
+            <list string="WhatsApp Accounts / Numbers"
+                  decoration-success="session_status == 'connected'"
+                  decoration-warning="session_status == 'connecting'"
+                  decoration-muted="session_status == 'disconnected'">
+                <field name="name"/>
+                <field name="phone_number"/>
+                <field name="account_type"/>
+                <field name="user_id"/>
+                <field name="is_default" widget="boolean_toggle"/>
+                <field name="session_status" widget="badge"
+                       decoration-success="session_status == 'connected'"
+                       decoration-warning="session_status == 'connecting'"
+                       decoration-muted="session_status == 'disconnected'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Account Form View -->
+    <record id="view_whatsapp_account_form" model="ir.ui.view">
+        <field name="name">whatsapp.account.form</field>
+        <field name="model">whatsapp.account</field>
+        <field name="arch" type="xml">
+            <form string="WhatsApp Account &amp; QR Pairing">
+                <header>
+                    <button name="action_generate_qr_code" type="object" string="Generate QR Code" class="btn-primary"
+                            icon="fa-qrcode" invisible="account_type != 'qr_code' or session_status == 'connected'"/>
+                    <button name="action_confirm_connected" type="object" string="Confirm Connected" class="btn-success"
+                            icon="fa-check" invisible="session_status != 'connecting'"/>
+                    <button name="action_disconnect" type="object" string="Disconnect" class="btn-secondary"
+                            invisible="session_status == 'disconnected'"/>
+                    <field name="session_status" widget="statusbar" statusbar_visible="disconnected,connecting,connected"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. Sales Team (+92 300 1234567)"/></h1>
+                    </div>
+                    <group>
+                        <group string="WhatsApp Number &amp; Engine">
+                            <field name="phone_number" placeholder="+923001234567"/>
+                            <field name="account_type" widget="radio"/>
+                            <field name="is_default" widget="boolean_toggle"/>
+                        </group>
+                        <group string="Ownership &amp; Multi-Company">
+                            <field name="user_id" options="{'no_create': True}"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+
+                    <!-- QR Code Scanning Section -->
+                    <div class="alert alert-info mt16" role="alert" invisible="account_type != 'qr_code' or session_status != 'connecting'">
+                        <h4><i class="fa fa-qrcode"/> Scan QR Code with WhatsApp:</h4>
+                        <ol class="mb-0">
+                            <li>Open <strong>WhatsApp</strong> on your phone.</li>
+                            <li>Tap <strong>Settings</strong> (or 3 dots) &gt; <strong>Linked Devices</strong>.</li>
+                            <li>Tap <strong>Link a Device</strong> and point your camera at the QR code below.</li>
+                        </ol>
+                    </div>
+
+                    <div class="text-center my-3" invisible="session_status != 'connecting' or account_type != 'qr_code'">
+                        <field name="qr_code_image" widget="image" options="{'size': [240, 240]}" class="shadow p-2 bg-white rounded"/>
+                        <div class="text-muted mt-2">
+                            Pairing Code: <strong><field name="pairing_code" readonly="1"/></strong>
+                        </div>
+                    </div>
+
+                    <!-- Meta Cloud API Route -->
+                    <group string="Official Meta Cloud API Credentials (Optional)" invisible="account_type != 'meta_cloud_api'">
+                        <field name="meta_phone_number_id" placeholder="Phone Number ID from Meta Developers"/>
+                        <field name="meta_waba_id" placeholder="WABA ID"/>
+                        <field name="meta_access_token" password="True" placeholder="Permanent System User Token"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_whatsapp_account" model="ir.actions.act_window">
+        <field name="name">WhatsApp Numbers / Accounts</field>
+        <field name="res_model">whatsapp.account</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Connect your first WhatsApp Number!
+            </p>
+            <p>
+                Connect unlimited WhatsApp numbers via a simple QR scan (no Meta approval, zero per-message cost) or link official Meta Cloud API accounts.
+            </p>
+        </field>
+    </record>
+</odoo>

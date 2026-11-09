@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_whatsapp_composer_form" model="ir.ui.view">
+        <field name="name">whatsapp.composer.form</field>
+        <field name="model">whatsapp.composer</field>
+        <field name="arch" type="xml">
+            <form string="Send WhatsApp Message">
+                <sheet>
+                    <div class="oe_title">
+                        <h2><field name="partner_id" options="{'no_create': True}" placeholder="Select Customer..."/></h2>
+                    </div>
+                    <group>
+                        <group string="Sender &amp; Recipient">
+                            <field name="account_id" options="{'no_create': True}"/>
+                            <field name="mobile_number" placeholder="e.g. +92 300 1234567"/>
+                            <field name="send_mode" widget="radio"/>
+                            <field name="res_model" invisible="1"/>
+                            <field name="res_id" invisible="1"/>
+                        </group>
+                        <group string="Template &amp; Attachment">
+                            <field name="template_id" options="{'no_create': True}"/>
+                            <field name="attachment_filename" readonly="1" invisible="not attachment_filename"/>
+                        </group>
+                    </group>
+                    <group string="Message Content (Edit / Customize)">
+                        <field name="message_body" placeholder="Type or preview your message here..." nolabel="1" widget="text"/>
+                    </group>
+                    <group string="Additional Attachments" invisible="send_mode == 'whatsapp_web'">
+                        <field name="attachment_ids" widget="many2many_binary" nolabel="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="action_send" string="Send Now" type="object" class="btn-primary" icon="fa-whatsapp"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

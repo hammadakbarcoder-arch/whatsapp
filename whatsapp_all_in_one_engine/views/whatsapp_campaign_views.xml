@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Campaign List View -->
+    <record id="view_whatsapp_campaign_list" model="ir.ui.view">
+        <field name="name">whatsapp.campaign.list</field>
+        <field name="model">whatsapp.campaign</field>
+        <field name="arch" type="xml">
+            <list string="Bulk WhatsApp Campaigns"
+                  decoration-success="state == 'done'"
+                  decoration-info="state == 'in_progress'"
+                  decoration-muted="state in ('draft', 'cancel')">
+                <field name="name"/>
+                <field name="account_id"/>
+                <field name="total_contacts"/>
+                <field name="sent_count"/>
+                <field name="failed_count"/>
+                <field name="progress_percentage" widget="progressbar"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'done'"
+                       decoration-info="state == 'in_progress'"
+                       decoration-muted="state == 'draft'"
+                       decoration-danger="state == 'cancel'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Campaign Form View -->
+    <record id="view_whatsapp_campaign_form" model="ir.ui.view">
+        <field name="name">whatsapp.campaign.form</field>
+        <field name="model">whatsapp.campaign</field>
+        <field name="arch" type="xml">
+            <form string="Bulk WhatsApp Campaign">
+                <header>
+                    <button name="action_send_campaign" type="object" string="Send Campaign Now" class="btn-primary"
+                            icon="fa-paper-plane" invisible="state in ('done', 'in_progress')"/>
+                    <button name="action_cancel" type="object" string="Cancel Campaign" class="btn-secondary"
+                            invisible="state not in ('draft', 'in_progress')"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,in_progress,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. Eid VIP Discount Promo / Product Launch"/></h1>
+                    </div>
+                    <group>
+                        <group string="Sender &amp; Settings">
+                            <field name="account_id" options="{'no_create': True}"/>
+                            <field name="delay_seconds"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                        <group string="Campaign Progress &amp; Metrics">
+                            <field name="total_contacts" readonly="1"/>
+                            <field name="sent_count" readonly="1"/>
+                            <field name="failed_count" readonly="1"/>
+                            <field name="progress_percentage" widget="progressbar"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Target Audience (1000+ Contacts)" name="audience">
+                            <field name="partner_ids" placeholder="Select multiple contacts or tags...">
+                                <list>
+                                    <field name="name"/>
+                                    <field name="phone"/>
+                                    <field name="email"/>
+                                    <field name="country_id"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Campaign Message &amp; Media" name="message">
+                            <div class="alert alert-info" role="alert">
+                                <strong>Placeholders:</strong> Use <code>{{name}}</code> for customer name, and <code>{{company}}</code> for company name.
+                            </div>
+                            <field name="message_body" placeholder="Write promotional message here..." widget="text"/>
+                            <group string="Media Attachments">
+                                <field name="attachment_ids" widget="many2many_binary" nolabel="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_whatsapp_campaign" model="ir.actions.act_window">
+        <field name="name">Bulk Campaigns</field>
+        <field name="res_model">whatsapp.campaign</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Launch your first WhatsApp Broadcast Campaign!
+            </p>
+            <p>
+                Blast promotional campaigns, offers, and newsletters to 1,000+ customers simultaneously with intelligent anti-spam throttle.
+            </p>
+        </field>
+    </record>
+</odoo>

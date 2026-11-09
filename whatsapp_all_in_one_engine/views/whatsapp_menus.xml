@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Top-level Root Menu -->
+    <menuitem id="menu_whatsapp_root"
+              name="WhatsApp Engine"
+              web_icon="whatsapp_all_in_one_engine,static/description/icon.png"
+              sequence="20"
+              groups="group_whatsapp_user"/>
+
+    <!-- Submenu 1: Accounts (Unlimited Numbers) -->
+    <menuitem id="menu_whatsapp_accounts"
+              name="Accounts &amp; QR Setup"
+              parent="menu_whatsapp_root"
+              action="action_whatsapp_account"
+              sequence="5"
+              groups="group_whatsapp_user"/>
+
+    <!-- Submenu 2: Message Logs -->
+    <menuitem id="menu_whatsapp_messages"
+              name="Message History"
+              parent="menu_whatsapp_root"
+              action="action_whatsapp_message_log"
+              sequence="10"
+              groups="group_whatsapp_user"/>
+
+    <!-- Submenu 3: Bulk Campaigns -->
+    <menuitem id="menu_whatsapp_campaigns"
+              name="Bulk Campaigns"
+              parent="menu_whatsapp_root"
+              action="action_whatsapp_campaign"
+              sequence="15"
+              groups="group_whatsapp_user"/>
+
+    <!-- Submenu 4: Call Logs -->
+    <menuitem id="menu_whatsapp_calls"
+              name="Call Logs"
+              parent="menu_whatsapp_root"
+              action="action_whatsapp_call_log"
+              sequence="20"
+              groups="group_whatsapp_user"/>
+
+    <!-- Submenu 5: Templates -->
+    <menuitem id="menu_whatsapp_templates"
+              name="Templates"
+              parent="menu_whatsapp_root"
+              action="action_whatsapp_template"
+              sequence="25"
+              groups="group_whatsapp_user"/>
+
+    <!-- Submenu 6: Configuration -->
+    <menuitem id="menu_whatsapp_config_parent"
+              name="Configuration"
+              parent="menu_whatsapp_root"
+              sequence="50"
+              groups="group_whatsapp_manager"/>
+
+    <menuitem id="menu_whatsapp_settings"
+              name="Settings"
+              parent="menu_whatsapp_config_parent"
+              action="action_whatsapp_config_settings"
+              sequence="10"
+              groups="group_whatsapp_manager"/>
+</odoo>

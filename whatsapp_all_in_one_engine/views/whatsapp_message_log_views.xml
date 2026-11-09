@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Message Log List View -->
+    <record id="view_whatsapp_message_log_list" model="ir.ui.view">
+        <field name="name">whatsapp.message.log.list</field>
+        <field name="model">whatsapp.message.log</field>
+        <field name="arch" type="xml">
+            <list string="WhatsApp Message History"
+                  decoration-success="state in ('sent', 'delivered', 'read')"
+                  decoration-danger="state == 'failed'"
+                  decoration-muted="state == 'draft'">
+                <field name="sent_date"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="mobile_number"/>
+                <field name="record_ref"/>
+                <field name="attachment_filename" optional="show"/>
+                <field name="meta_message_id" optional="hide"/>
+                <field name="state" widget="badge"
+                       decoration-success="state in ('sent', 'delivered', 'read')"
+                       decoration-danger="state == 'failed'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Message Log Form View -->
+    <record id="view_whatsapp_message_log_form" model="ir.ui.view">
+        <field name="name">whatsapp.message.log.form</field>
+        <field name="model">whatsapp.message.log</field>
+        <field name="arch" type="xml">
+            <form string="WhatsApp Delivery Log">
+                <header>
+                    <button name="action_retry" type="object" string="Retry Sending" class="btn-primary" invisible="state != 'failed'" icon="fa-refresh"/>
+                    <button name="action_open_record" type="object" string="Open Related Document" class="btn-secondary" invisible="not res_id" icon="fa-external-link"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,delivered,read"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                        <group string="Recipient &amp; Document">
+                            <field name="partner_id"/>
+                            <field name="mobile_number"/>
+                            <field name="record_ref"/>
+                            <field name="template_id"/>
+                        </group>
+                        <group string="Transmission Details">
+                            <field name="sent_date"/>
+                            <field name="meta_message_id" readonly="1"/>
+                            <field name="attachment_filename" readonly="1"/>
+                            <field name="company_id" groups="base.group_multi_company"/>
+                        </group>
+                    </group>
+
+                    <div class="alert alert-danger" role="alert" invisible="not error_message">
+                        <h4><i class="fa fa-exclamation-triangle"/> Transmission Failure</h4>
+                        <field name="error_message" readonly="1"/>
+                    </div>
+
+                    <notebook>
+                        <page string="Payload &amp; API Tracing" name="api_tracing">
+                            <group>
+                                <field name="payload_sent" widget="text" readonly="1"/>
+                                <field name="response_received" widget="text" readonly="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Message Log Search View -->
+    <record id="view_whatsapp_message_log_search" model="ir.ui.view">
+        <field name="name">whatsapp.message.log.search</field>
+        <field name="model">whatsapp.message.log</field>
+        <field name="arch" type="xml">
+            <search string="Search WhatsApp History">
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="mobile_number"/>
+                <field name="record_ref"/>
+                <field name="meta_message_id"/>
+                <separator/>
+                <filter string="Sent Successfully" name="filter_sent" domain="[('state', 'in', ('sent', 'delivered', 'read'))]"/>
+                <filter string="Failed Dispatches" name="filter_failed" domain="[('state', '=', 'failed')]"/>
+                <filter string="Today" name="filter_today" domain="[('sent_date', '&gt;=', context_today().strftime('%Y-%m-%d 00:00:00'))]"/>
+                <group>
+                    <filter string="Status" name="group_by_status" domain="[]" context="{'group_by': 'state'}"/>
+                    <filter string="Customer" name="group_by_customer" domain="[]" context="{'group_by': 'partner_id'}"/>
+                    <filter string="Template" name="group_by_template" domain="[]" context="{'group_by': 'template_id'}"/>
+                    <filter string="Date" name="group_by_date" domain="[]" context="{'group_by': 'sent_date:day'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- Message Log Graph View (Ninja Analytics Compatible) -->
+    <record id="view_whatsapp_message_log_graph" model="ir.ui.view">
+        <field name="name">whatsapp.message.log.graph</field>
+        <field name="model">whatsapp.message.log</field>
+        <field name="arch" type="xml">
+            <graph string="WhatsApp Message Analytics" type="bar">
+                <field name="sent_date" interval="day"/>
+                <field name="state"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Message Log Pivot View -->
+    <record id="view_whatsapp_message_log_pivot" model="ir.ui.view">
+        <field name="name">whatsapp.message.log.pivot</field>
+        <field name="model">whatsapp.message.log</field>
+        <field name="arch" type="xml">
+            <pivot string="WhatsApp Performance Matrix">
+                <field name="sent_date" interval="month" type="row"/>
+                <field name="state" type="col"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_whatsapp_message_log" model="ir.actions.act_window">
+        <field name="name">WhatsApp Message Logs</field>
+        <field name="res_model">whatsapp.message.log</field>
+        <field name="view_mode">list,form,graph,pivot</field>
+        <field name="search_view_id" ref="view_whatsapp_message_log_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No WhatsApp messages dispatched yet.
+            </p>
+            <p>
+                Messages sent automatically upon Sales Order confirmation, Invoice validation, or Delivery dispatch will appear here with delivery status and audit trails.
+            </p>
+        </field>
+    </record>
+</odoo>

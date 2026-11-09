@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_inherit_whatsapp" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.whatsapp</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <!-- Add WhatsApp Button in Header -->
+            <xpath expr="//header" position="inside">
+                <button name="action_send_whatsapp"
+                        string="Send WhatsApp"
+                        type="object"
+                        class="btn-outline-success"
+                        icon="fa-whatsapp"
+                        title="Send Sales Order confirmation and PDF to customer via WhatsApp"/>
+            </xpath>
+
+            <!-- Add WhatsApp Delivery Status Badge in Sheet -->
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+                <field name="whatsapp_status" widget="badge"
+                       decoration-success="whatsapp_status == 'sent'"
+                       decoration-danger="whatsapp_status == 'failed'"
+                       decoration-muted="whatsapp_status == 'not_sent'"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,14 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_whatsapp_account_user,whatsapp.account.user,model_whatsapp_account,group_whatsapp_user,1,1,1,0
+access_whatsapp_account_manager,whatsapp.account.manager,model_whatsapp_account,group_whatsapp_manager,1,1,1,1
+access_whatsapp_template_user,whatsapp.template.user,model_whatsapp_template,group_whatsapp_user,1,0,0,0
+access_whatsapp_template_manager,whatsapp.template.manager,model_whatsapp_template,group_whatsapp_manager,1,1,1,1
+access_whatsapp_template_variable_user,whatsapp.template.variable.user,model_whatsapp_template_variable,group_whatsapp_user,1,0,0,0
+access_whatsapp_template_variable_manager,whatsapp.template.variable.manager,model_whatsapp_template_variable,group_whatsapp_manager,1,1,1,1
+access_whatsapp_message_log_user,whatsapp.message.log.user,model_whatsapp_message_log,group_whatsapp_user,1,1,1,0
+access_whatsapp_message_log_manager,whatsapp.message.log.manager,model_whatsapp_message_log,group_whatsapp_manager,1,1,1,1
+access_whatsapp_campaign_user,whatsapp.campaign.user,model_whatsapp_campaign,group_whatsapp_user,1,1,1,0
+access_whatsapp_campaign_manager,whatsapp.campaign.manager,model_whatsapp_campaign,group_whatsapp_manager,1,1,1,1
+access_whatsapp_call_log_user,whatsapp.call.log.user,model_whatsapp_call_log,group_whatsapp_user,1,1,1,0
+access_whatsapp_call_log_manager,whatsapp.call.log.manager,model_whatsapp_call_log,group_whatsapp_manager,1,1,1,1
+access_whatsapp_composer_user,whatsapp.composer.user,model_whatsapp_composer,group_whatsapp_user,1,1,1,1

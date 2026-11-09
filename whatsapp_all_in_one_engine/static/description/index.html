@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WhatsApp All-in-One Engine | Free QR Path · No Meta API Needed · $20 Launch Offer ($35 Regular)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --wa-green: #25D366;
+            --wa-dark: #128C7E;
+            --wa-deep: #075E54;
+            --dark-navy: #0B132B;
+            --gold: #F59E0B;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #1E293B;
+            background-color: #F8FAFC;
+        }
+        .hero-banner {
+            background: linear-gradient(135deg, #075E54 0%, #0F172A 70%, #128C7E 100%);
+            border-radius: 24px;
+            color: #ffffff;
+            padding: 55px 35px;
+            box-shadow: 0 20px 40px rgba(7, 94, 84, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-banner h1 {
+            font-weight: 900;
+            font-size: 2.8rem;
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+        }
+        .badge-pill {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+            padding: 8px 18px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .price-tag {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+            color: #000;
+            font-weight: 900;
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-size: 1.15rem;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+        }
+        .feature-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 30px;
+            border: 1px solid #E2E8F0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
+        }
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+            border-color: var(--wa-green);
+        }
+        .icon-box {
+            width: 62px;
+            height: 62px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            margin-bottom: 22px;
+        }
+        .check-pill {
+            background: rgba(37, 211, 102, 0.12);
+            color: #065F46;
+            border: 1px solid rgba(37, 211, 102, 0.3);
+            border-radius: 50px;
+            padding: 8px 16px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .table-custom thead {
+            background: #0F172A;
+            color: #ffffff;
+        }
+        .table-custom th, .table-custom td {
+            vertical-align: middle;
+            padding: 16px 20px;
+        }
+        .dual-card {
+            background: #FFFFFF;
+            border: 2px solid #E2E8F0;
+            border-radius: 20px;
+            padding: 35px;
+            position: relative;
+        }
+        .dual-card.highlight {
+            border-color: var(--wa-green);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.15);
+        }
+        .tag-ribbon {
+            position: absolute;
+            top: -14px;
+            right: 25px;
+            background: var(--wa-green);
+            color: #052E16;
+            font-weight: 800;
+            font-size: 0.8rem;
+            padding: 4px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+        .support-box {
+            background: linear-gradient(135deg, #065F46 0%, #0F172A 100%);
+            border: 2px solid #10B981;
+            border-radius: 20px;
+            padding: 30px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container my-5">
+
+    <!-- HERO SECTION -->
+    <div class="hero-banner mb-5 text-center text-lg-start">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="d-flex flex-wrap gap-2 mb-3 justify-content-center justify-content-lg-start">
+                    <span class="badge-pill bg-danger text-white fw-bold"><i class="fas fa-fire"></i> FIRST 10 BUYERS: $20 USD</span>
+                    <span class="badge-pill"><i class="fas fa-qrcode text-warning"></i> FREE QR PATH (DEFAULT)</span>
+                    <span class="badge-pill"><i class="fas fa-ban text-danger"></i> NO META API NEEDED</span>
+                    <span class="badge-pill"><i class="fas fa-infinity text-info"></i> UNLIMITED NUMBERS</span>
+                    <span class="badge-pill"><i class="fas fa-check-circle text-success"></i> ODOO 17, 18 &amp; 19 READY</span>
+                </div>
+                <h1>Run WhatsApp from Odoo — No Meta API, No Approvals, No Per-Message Fees.</h1>
+                <p class="lead mb-4 opacity-90 fs-5">
+                    Connect <strong>unlimited WhatsApp numbers</strong> with a simple QR scan, chat with customers, automate orders, invoices &amp; delivery notes with PDFs, launch bulk campaigns to 1000+ contacts, and log calls inside Odoo Community or Enterprise.
+                </p>
+
+                <!-- CHECKLIST GRID -->
+                <div class="d-flex flex-wrap gap-2 mb-4 justify-content-center justify-content-lg-start">
+                    <span class="check-pill bg-white text-dark"><i class="fas fa-check text-success"></i> No Meta API needed</span>
+                    <span class="check-pill bg-white text-dark"><i class="fas fa-check text-success"></i> No approval required</span>
+                    <span class="check-pill bg-white text-dark"><i class="fas fa-check text-success"></i> Zero per-message fees</span>
+                    <span class="check-pill bg-white text-dark"><i class="fas fa-check text-success"></i> Unlimited numbers</span>
+                    <span class="check-pill bg-white text-dark"><i class="fas fa-check text-success"></i> Cloud API optional</span>
+                </div>
+
+                <div class="d-flex flex-wrap align-items-center gap-3 justify-content-center justify-content-lg-start">
+                    <span class="price-tag"><i class="fas fa-tag"></i> $20 ONCE (FIRST 10 BUYERS) · REGULAR: $35</span>
+                    <span class="text-white-50 fs-6">Go live with QR in 60 seconds!</span>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center mt-4 mt-lg-0">
+                <img src="icon.png" alt="WhatsApp All-in-One Engine" class="img-fluid rounded-4 shadow-lg" style="max-width: 220px;">
+                <div class="mt-3 text-white-50 small">Developed by <strong>Hammad Akbar</strong></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUTHOR DIRECT SUPPORT BADGE -->
+    <div class="support-box mb-5 shadow-sm">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h4 class="fw-bold mb-1"><i class="fab fa-whatsapp text-warning me-2"></i>Need Help or Custom Features? Chat Directly with Author</h4>
+                <p class="mb-0 opacity-90">Get direct 1-on-1 assistance for setup, server configuration, or custom workflows.</p>
+            </div>
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                <a href="https://wa.me/923109082711" target="_blank" class="btn btn-warning btn-lg fw-bold px-4 py-2 text-dark shadow">
+                    <i class="fab fa-whatsapp me-2"></i>+92 310 9082711
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- DUAL ENGINE BREAKDOWN: QR VS META CLOUD API -->
+    <div class="row g-4 mb-5">
+        <div class="col-12 text-center mb-2">
+            <h2 class="fw-bold">Pick Your Path: Free QR Scan or Official Meta API</h2>
+            <p class="text-muted">Per account, choose between the no-approval QR path or official Meta Cloud API — both built into the same module!</p>
+        </div>
+
+        <div class="col-md-6">
+            <div class="dual-card highlight">
+                <span class="tag-ribbon">RECOMMENDED · DEFAULT</span>
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="icon-box bg-success text-white mb-0">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold mb-0">Free QR Scan Path</h4>
+                        <span class="badge bg-success-subtle text-success">Instant 1-Minute Setup</span>
+                    </div>
+                </div>
+                <ul class="list-unstyled lh-lg text-muted mb-0">
+                    <li><i class="fas fa-check-circle text-success me-2"></i><strong>No Meta API / No Approval:</strong> Just scan with your WhatsApp phone!</li>
+                    <li><i class="fas fa-check-circle text-success me-2"></i><strong>$0 Per-Message Fees:</strong> Zero cost per message sent or received.</li>
+                    <li><i class="fas fa-check-circle text-success me-2"></i><strong>Unlimited Numbers:</strong> Connect multiple sales reps, support, &amp; warehouse phones.</li>
+                    <li><i class="fas fa-check-circle text-success me-2"></i><strong>No Template Approvals:</strong> Write freeform custom messages freely.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="dual-card">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="icon-box bg-primary text-white mb-0">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <h4 class="fw-bold mb-0">Official Meta Cloud API</h4>
+                        <span class="badge bg-primary-subtle text-primary">Optional Enterprise Route</span>
+                    </div>
+                </div>
+                <ul class="list-unstyled lh-lg text-muted mb-0">
+                    <li><i class="fas fa-check-circle text-primary me-2"></i><strong>Official WABA Integration:</strong> For enterprises wanting Meta's official channel.</li>
+                    <li><i class="fas fa-check-circle text-primary me-2"></i><strong>Free 1,000 Service Conversations:</strong> Included directly by Meta.</li>
+                    <li><i class="fas fa-check-circle text-primary me-2"></i><strong>Approved Utility Templates:</strong> Strict transactional compliance.</li>
+                    <li><i class="fas fa-check-circle text-primary me-2"></i><strong>Plug &amp; Play:</strong> Switch any account to Meta API with 1 click.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHERE CAN YOU USE THIS MODULE? (DETAILED INDUSTRIES) -->
+    <div class="card border-0 shadow-sm rounded-4 p-4 mb-5">
+        <h3 class="fw-bold mb-2"><i class="fas fa-building text-success me-2"></i>Where &amp; How Can You Use This Module?</h3>
+        <p class="text-muted mb-4">Tested and perfected across 8 major commercial industries to replace email friction with 98% open-rate WhatsApp messaging:</p>
+
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="p-3 bg-light rounded-3 h-100 border-start border-4 border-success">
+                    <h6 class="fw-bold text-dark"><i class="fas fa-shopping-cart text-success me-2"></i>1. E-Commerce &amp; Retail</h6>
+                    <p class="small text-muted mb-0">Instant order confirmation, invoice PDF dispatch, abandoned cart recovery, and parcel tracking alerts.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 bg-light rounded-3 h-100 border-start border-4 border-primary">
+                    <h6 class="fw-bold text-dark"><i class="fas fa-boxes-stacked text-primary me-2"></i>2. Wholesale &amp; Distribution</h6>
+                    <p class="small text-muted mb-0">Send bulk tax invoices to B2B buyers, overdue payment reminders, and dispatch manifests.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 bg-light rounded-3 h-100 border-start border-4 border-warning">
+                    <h6 class="fw-bold text-dark"><i class="fas fa-truck-fast text-warning me-2"></i>3. Freight &amp; Logistics</h6>
+                    <p class="small text-muted mb-0">Automated delivery note PDFs, driver arrival alerts, and live tracking receipts to consignees.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 bg-light rounded-3 h-100 border-start border-4 border-danger">
+                    <h6 class="fw-bold text-dark"><i class="fas fa-briefcase text-danger me-2"></i>4. Agencies &amp; Services</h6>
+                    <p class="small text-muted mb-0">Quotation estimates, client milestone billing, advance payment confirmations, and contract PDFs.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="p-3 bg-light rounded-3 h-100 border-start border-4 border-info">
+                    <h6 class="fw-bold text-dark"><i class="fas fa-industry text-info me-2"></i>5. Manufacturing &amp; Trading</h6>
+                    <p class="small text-muted mb-0">Material purchase orders to suppliers, production dispatch notices, and QA test certificates.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 bg-light rounded-3 h-100 border-start border-4 border-secondary">
+                    <h6 class="fw-bold text-dark"><i class="fas fa-hotel text-secondary me-2"></i>6. Real Estate &amp; Builders</h6>
+                    <p class="small text-muted mb-0">Property payment installment schedules, booking receipts, and floor plan brochure broadcasts.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 bg-light rounded-3 h-100 border-start border-4 border-success">
+                    <h6 class="fw-bold text-dark"><i class="fas fa-stethoscope text-success me-2"></i>7. Healthcare &amp; Clinics</h6>
+                    <p class="small text-muted mb-0">Appointment booking alerts, doctor consultation schedules, and diagnostic test reports in PDF.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="p-3 bg-light rounded-3 h-100 border-start border-4 border-primary">
+                    <h6 class="fw-bold text-dark"><i class="fas fa-graduation-cap text-primary me-2"></i>8. Education &amp; Academies</h6>
+                    <p class="small text-muted mb-0">Fee challan receipts, course admission confirmations, exam timetables, and student attendance alerts.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6 CORE PILLARS OF VALUE -->
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="icon-box bg-success bg-opacity-10 text-success">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                </div>
+                <h4 class="fw-bold">1. Auto SO &amp; Invoices + PDFs</h4>
+                <p class="text-muted">
+                    When a Sales Order is confirmed or an Invoice is validated, customer gets an instant WhatsApp message with the official <strong>Quotation/Tax Invoice PDF attached</strong>.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="icon-box bg-warning bg-opacity-10 text-warning">
+                    <i class="fas fa-truck-fast"></i>
+                </div>
+                <h4 class="fw-bold">2. Automated Delivery Alerts</h4>
+                <p class="text-muted">
+                    Warehouse staff validates dispatch $\rightarrow$ Customer receives automated parcel dispatch alert with full <strong>Delivery Slip PDF</strong> for instant tracking.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="icon-box bg-primary bg-opacity-10 text-primary">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h4 class="fw-bold">3. 2-Way Discuss Chatting</h4>
+                <p class="text-muted">
+                    Customer WhatsApp replies route directly into Odoo <strong>Discuss &amp; Chatter</strong>! Sales agents can chat directly from Odoo without opening phones.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="icon-box bg-danger bg-opacity-10 text-danger">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h4 class="fw-bold">4. Bulk Broadcasts (1000+)</h4>
+                <p class="text-muted">
+                    Blast promotional flyers, VIP discounts, and newsletters to 1,000+ targeted customers with dynamic tags (<code>{{name}}</code>) and anti-spam smart throttle.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="icon-box bg-info bg-opacity-10 text-info">
+                    <i class="fas fa-phone-volume"></i>
+                </div>
+                <h4 class="fw-bold">5. Call Logs &amp; Customer-360</h4>
+                <p class="text-muted">
+                    Log WhatsApp voice &amp; video calls on the customer timeline! Record call duration, action items, and notes for auditable sales history.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="feature-card">
+                <div class="icon-box bg-secondary bg-opacity-10 text-secondary">
+                    <i class="fas fa-users-gear"></i>
+                </div>
+                <h4 class="fw-bold">6. Unlimited Numbers</h4>
+                <p class="text-muted">
+                    No limits! Add distinct WhatsApp numbers across sales reps, support engineers, billing desks, and warehouse pickers across unlimited databases.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMPARISON TABLE: $20 ONCE VS SAAS SUBSCRIPTIONS -->
+    <div class="card border-0 shadow-sm rounded-4 p-4 mb-5">
+        <h3 class="fw-bold mb-4 text-center">Why Pay $100/Month Recurring When You Can Pay $20 Once?</h3>
+        <div class="table-responsive">
+            <table class="table table-bordered table-custom">
+                <thead>
+                    <tr>
+                        <th>Capability</th>
+                        <th class="bg-success text-white">This Module (Dual QR + Cloud API)</th>
+                        <th class="bg-secondary text-white">3rd-Party SaaS (Twilio / WATI)</th>
+                        <th class="bg-danger text-white">Other Odoo Modules</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="fw-bold">Price</td>
+                        <td class="table-success fw-bold text-success"><i class="fas fa-check"></i> $20 ONCE (First 10 Buyers | Regular: $35)</td>
+                        <td>$30 - $150 / month recurring</td>
+                        <td>$80 - $200 + Yearly Renewals</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Meta Business Verification</td>
+                        <td class="table-success fw-bold text-success"><i class="fas fa-check"></i> NOT NEEDED (Instant QR Path)</td>
+                        <td>Mandatory (Requires Legal Docs)</td>
+                        <td>Mandatory or Cloud API only</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Connected Numbers</td>
+                        <td class="table-success fw-bold text-success"><i class="fas fa-check"></i> UNLIMITED Numbers</td>
+                        <td>Charges per additional number</td>
+                        <td>Often limited to 1 number</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Per-Message Fees</td>
+                        <td class="table-success fw-bold text-success"><i class="fas fa-check"></i> $0.00 (Zero on QR Path)</td>
+                        <td>Markup on every single message</td>
+                        <td>Meta conversation fees</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">PDF Attachments</td>
+                        <td class="table-success fw-bold text-success"><i class="fas fa-check"></i> Automatic SO, Invoice &amp; Picking PDFs</td>
+                        <td>Requires external S3 bucket/CDN</td>
+                        <td>Basic text only</td>
+                    </tr>
+                    <tr>
+                        <td class="fw-bold">Call Logging &amp; 360 Timeline</td>
+                        <td class="table-success fw-bold text-success"><i class="fas fa-check"></i> Built-in Call &amp; Meeting Tracker</td>
+                        <td>Not available</td>
+                        <td>Separate expensive add-on</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 60-SECOND QUICK START -->
+    <div class="card border-0 shadow-sm rounded-4 p-4 mb-5 bg-dark text-white">
+        <h3 class="fw-bold mb-4 text-warning"><i class="fas fa-stopwatch me-2"></i>Go Live in About 60 Seconds</h3>
+        <ol class="fs-6 lh-lg mb-0 text-light">
+            <li><strong>Install Module:</strong> Install <code>whatsapp_all_in_one_engine</code> into your Odoo 17, 18, or 19 database.</li>
+            <li><strong>Add Number:</strong> Go to <em>WhatsApp Engine &gt; Accounts &amp; QR Setup</em>, click <strong>New</strong>, enter your number and click <strong>Generate QR Code</strong>.</li>
+            <li><strong>Scan QR:</strong> Open WhatsApp on your phone &gt; <em>Linked Devices &gt; Link a Device</em>, and scan the screen. Done!</li>
+            <li><strong>Automate:</strong> Confirm any Sales Order, Invoice, or Delivery — your customer gets WhatsApp alerts with PDFs instantly!</li>
+        </ol>
+    </div>
+
+    <!-- FOOTER & SUPPORT -->
+    <div class="hero-banner text-center py-4">
+        <h3 class="fw-bold mb-2">Dedicated Developer Support &amp; Feature Guarantee</h3>
+        <p class="mb-3 opacity-90">Need custom workflow automation or multi-database deployment? We are here to help!</p>
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+            <a href="https://wa.me/923109082711" target="_blank" class="badge bg-white text-dark p-2 px-4 rounded-pill fw-bold text-decoration-none fs-6 shadow">
+                <i class="fab fa-whatsapp text-success me-1"></i> WhatsApp: +92 310 9082711
+            </a>
+            <span class="badge bg-white text-dark p-2 px-4 rounded-pill fw-bold fs-6 shadow">
+                <i class="fas fa-user-check text-primary me-1"></i> Author: <strong>Hammad Akbar</strong>
+            </span>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

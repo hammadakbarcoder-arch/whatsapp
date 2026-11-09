@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Call Log List View -->
+    <record id="view_whatsapp_call_log_list" model="ir.ui.view">
+        <field name="name">whatsapp.call.log.list</field>
+        <field name="model">whatsapp.call.log</field>
+        <field name="arch" type="xml">
+            <list string="WhatsApp Call History"
+                  decoration-success="call_status == 'completed'"
+                  decoration-danger="call_status in ('missed', 'rejected')">
+                <field name="call_date"/>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="call_type"/>
+                <field name="duration_minutes" widget="float_time"/>
+                <field name="user_id"/>
+                <field name="call_status" widget="badge"
+                       decoration-success="call_status == 'completed'"
+                       decoration-danger="call_status in ('missed', 'rejected')"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Call Log Form View -->
+    <record id="view_whatsapp_call_log_form" model="ir.ui.view">
+        <field name="name">whatsapp.call.log.form</field>
+        <field name="model">whatsapp.call.log</field>
+        <field name="arch" type="xml">
+            <form string="Log WhatsApp Voice / Video Call">
+                <header>
+                    <field name="call_status" widget="statusbar" statusbar_visible="completed,missed,rejected"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name" class="oe_edit_only"/>
+                        <h1><field name="name" placeholder="e.g. Sales Discussion with Ali Khan"/></h1>
+                    </div>
+                    <group>
+                        <group string="Call Details">
+                            <field name="partner_id" options="{'no_create': True}"/>
+                            <field name="call_type"/>
+                            <field name="call_date"/>
+                        </group>
+                        <group string="Duration &amp; Agent">
+                            <field name="duration_minutes"/>
+                            <field name="account_id" options="{'no_create': True}"/>
+                            <field name="user_id" options="{'no_create': True}"/>
+                        </group>
+                    </group>
+                    <group string="Call Summary &amp; Customer Notes">
+                        <field name="summary" placeholder="Enter notes from the call..." nolabel="1" widget="text"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Call Log Pivot View -->
+    <record id="view_whatsapp_call_log_pivot" model="ir.ui.view">
+        <field name="name">whatsapp.call.log.pivot</field>
+        <field name="model">whatsapp.call.log</field>
+        <field name="arch" type="xml">
+            <pivot string="WhatsApp Call Metrics">
+                <field name="call_date" interval="month" type="row"/>
+                <field name="call_type" type="col"/>
+                <field name="duration_minutes" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_whatsapp_call_log" model="ir.actions.act_window">
+        <field name="name">WhatsApp Call Logs</field>
+        <field name="res_model">whatsapp.call.log</field>
+        <field name="view_mode">list,form,pivot</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No WhatsApp Calls logged yet.
+            </p>
+            <p>
+                Keep a 360-degree timeline of customer interactions by logging WhatsApp voice and video calls directly from Odoo.
+            </p>
+        </field>
+    </record>
+</odoo>
