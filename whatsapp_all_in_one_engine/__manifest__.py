@@ -31,7 +31,7 @@ Why Pay Monthly Subscriptions or Wait Weeks for Meta Approvals?
     'author': 'Hammad Akbar',
     'maintainer': 'Hammad Akbar',
     'support': 'rrajahammadakbar@gmail.com',
-    'website': 'https://github.com/hammadakbarcoder-arch/Ninja',
+    'website': 'https://apps.odoo.com/apps/modules/browse?author=Hammad%20Akbar',
     'license': 'OPL-1',
     'price': 20.00,
     'currency': 'USD',
