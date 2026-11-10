@@ -101,4 +101,4 @@ whatsapp_all_in_one_engine/
 - **Price:** $20.00 USD (Launch offer for first 10 buyers | Regular: $35.00 USD)
 - **License:** Odoo Proprietary License v1.0 (OPL-1)
 - **Authors:** Junaid & Hammad Akbar
-- **Repository / Support:** [Ninja Studio](https://github.com/hammadakbarcoder-arch/Ninja)
+- **Repository / Support:** [Ninja Studio](https://apps.odoo.com/apps/modules/browse?author=Hammad%20Akbar)
